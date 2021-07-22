@@ -10,9 +10,9 @@ Context: In the summer of 2021, I started a grad program at Hunter in order to b
 * SuperArray
 
 ### Data Structrues
-* Linked Lists
+* [Linked Lists](ds/ll.md)
 * Quick Sort
 
 ### Methods I
+* [Github Classroom](methods1/githubClassroom.md)
 * Bag O' Tricks
-* Github Classroom
