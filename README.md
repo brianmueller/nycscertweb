@@ -1,3 +1,1 @@
 # nycscertweb
-
-#### Github Pages Test
