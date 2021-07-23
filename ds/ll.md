@@ -3,13 +3,13 @@
 ## Context
 * LinkedLists are a data structure very similar to ArrayLists in end-result functionality, but very different in how they take up memory in the computer.
   * ArrayLists are effectively glorified Arrays that take up contiguous space in memory. While Arrays are fixed in size, ArrayLists essentially use an "end" marker in an Array with extra space for more elements. When all of the extra space is used, elements are copied over to a new Array (behind the scenes). But the main point is that all data must be back-to-back in memory.
-  * LinkedLists are very different in that the values in a list can live in completely different/disconnected places in memory. We call them "nodes", where each node has the data, and a pointer to the next node which could be anywhere.
+  * LinkedLists are very different in that the values in a list can live in completely different/disconnected places in memory. We call them "nodes", where each node has the data, and a connection to the next node which could be anywhere.
 
 ## Task
 The goal was to build the LinkedList class in two parts: first, individual nodes; then, the LinkedList of nodes.
 
 ## Process
-We first started off by building a `Node` class, where each instance holds both its data and a pointer to the next node instance. We then built in a few methods to get/set the data/next. 
+We first started off by building a `Node` class, where each instance holds both its data and a connection to the next node instance. We then built in a few methods to get/set the data/next. 
 
 Now that the Node class was built, it was time to build the functionality of the way the nodes related to each other. The key component was to keep track of the node in the `front` of the list. From there, we're able to access every following noode. We created the following methods:
 * `addFront()`: the ability to add a node to the front of the list
@@ -26,9 +26,9 @@ It took some getting used to the sequence of events necessary to inserting a nod
 ```
 apple -> cucumber
 ```
-and we want to add `banana` in the middle, intuition suggests to point `apple -> banana` and then `banana -> cucumber`. However, the moment you do `apple -> banana`, then `apple` is no longer pointing to `cucumber`, so `cucumber` is helplessly floating in memory, disconnected from the linked list, waiting to be garbage-collected. 
+and we want to add `banana` in the middle, intuition suggests to connect `apple -> banana` and then `banana -> cucumber`. However, the moment you do `apple -> banana`, then `apple` is no longer connecting to `cucumber`, so `cucumber` is helplessly floating in memory, disconnected from the linked list, waiting to be garbage-collected. 
 
-The workaround is to first point `banana -> cucumber`. At this point, two items are pointing at `cucumber` (`apple` and `banana`). But that kind of flexibility is apparently allowed in a linked list: it doesn't need to be completely linear. Once the `banana -> cucumber` connection is made, it's ok to separate `apple -> cucumber` and instead point `apple -> banana`. In the end, we have:
+The workaround is to first connect `banana -> cucumber`. At this point, two items are connected to `cucumber` (`apple` and `banana`). But that kind of flexibility is apparently allowed in a linked list: it doesn't need to be completely linear. Once the `banana -> cucumber` connection is made, it's ok to separate `apple -> cucumber` and instead connect `apple -> banana`. In the end, we have:
 ```
 apple -> banana -> cucumber
 ```

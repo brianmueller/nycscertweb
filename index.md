@@ -2,7 +2,7 @@
 ## Hunter CS Teacher Advanced Certificate Program
 
 ### General
-Context: In the summer of 2021, I started a grad program at Hunter in order to become a better teacher for my students, connect with other CS teachers, and obtain my CS teaching license.
+Context: In the summer of 2021, I started a computer science grad program at Hunter in order to become a better teacher for my students, connect with other CS teachers, and obtain my CS teaching license.
 
 ### Programming in Java
 * [Craps pre-work](programming/craps.md)
