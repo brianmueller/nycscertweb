@@ -8,7 +8,15 @@ The inspiration for the solution to this problem was a hybrid between two factor
 * [Lyuba](https://github.com/lfridman2016) asked if there was a way to keep all of our unplugged lesson plans in the same place, which made me want to hop on the bash scripting train.
 * [Topher](https://github.com/tofr) mentioned scripting a command to automatically pull, assuming all repos were already downloaded manually:
 ```bash
-for student in *; do cd $student; echo $student; git pull; cd ..; echo; done
+for student in *
+do
+    cd $student
+    echo $student
+    git pull
+    cd ..
+    echo
+done
+
 ```
 Topher mentioned that he uses Google Sheets to generate the scripts, but I wanted to see if I could do it all in the terminal.
 
@@ -90,6 +98,7 @@ do
 	bat $student/$file --theme=ansi-light --paging=never
 	printf "\n\n\n********************************\n\n"
 done
+
 ```
 * Update the `org`. This is used to create a link in case you want to see the file on github.com (on a Mac: <kbd>command+doubleClick</kbd> the printed link).
 * Update the `file` you want to print.
@@ -98,26 +107,64 @@ done
 
 ### Opening files
 ```bash
-file=index.html; for student in *; do echo $student; open $student/$file; done
+file=index.html
+for student in *
+do
+    echo $student
+    open $student/$file
+done
 ```
 * Update `file`
 
 ### Listing files
 ```bash
-for student in *; do echo $student; ls $student; printf "\n\n\n********************************\n\n"; done
+for student in *
+do
+    echo $student
+    ls $student
+    printf "\n\n\n********************************\n\n"
+done
 ```
 
 ### Printing number of commits
 ```bash
-for student in *; do echo $student; cd $student; git rev-list --all --count; cd ..; printf "\n\n\n********************************\n\n"; done
+for student in *
+do
+    echo $student
+    cd $student
+    git rev-list --all --count
+    cd ..
+    printf "\n\n\n********************************\n\n"
+done
 ```
 
 ### Printing commits
 ```bash
-for student in *; do echo $student; cd $student; git rev-list --all --count; cd ..; printf "\n\n\n********************************\n\n"; done
+for student in *
+do
+    echo $student
+    cd $student
+    git rev-list --all --count
+    cd ..
+    printf "\n\n\n********************************\n\n"
+done
 ```
 * Often requires you to press <kbd>q</kbd> to `quit` to jump to next student. (let me know if you have a workaround)
 
+## Final note
 
+To turn a multi-line script into a single-line script, use `;` to indicate new commands. Just not for the `do`. I.e.
+
+```bash
+for student in *
+do
+    action1
+    action2
+done
+```
+...is the same as...
+```bash
+for student in *; do action1; action2; done
+```
 
 [Home](../index.md)
