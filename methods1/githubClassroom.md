@@ -7,6 +7,7 @@ I've been using Github Classroom for a year, and I absolutely love it for distri
 The inspiration for the solution to this problem was a hybrid between two factors:
 * [Lyuba](https://github.com/lfridman2016) asked if there was a way to keep all of our unplugged lesson plans in the same place, which made me want to hop on the bash scripting train.
 * [Topher](https://github.com/tofr) mentioned scripting a command to automatically pull, assuming all repos were already downloaded manually:
+
 ```bash
 for student in *
 do
